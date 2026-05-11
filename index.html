@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Richard Bagshaw - Senior Laravel Developer based in Nottingham, UK. Building for the web since 1996.">
 <title>Richard Bagshaw - Senior Laravel Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,12 +39,6 @@
     background: var(--paper);
     box-shadow: 0 2px 18px rgba(0,0,0,0.06);
     padding: 70px 70px 90px;
-  }
-
-  .cv {
-    display: grid;
-    grid-template-columns: 270px 1fr;
-    gap: 50px;
   }
 
   /* ---- Headings ---- */
@@ -96,30 +91,38 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--accent);
-    margin: 18px 0 4px;
+    margin: 18px 0 6px;
   }
 
   .label:first-child { margin-top: 0; }
+  h2 + .label { margin-top: 0; }
 
   p { margin: 0 0 12px; }
 
   a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   a:hover { color: #000; }
 
-  /* ---- Top divider under header in main column ---- */
+  /* ---- Top header ---- */
+  .cv-header { margin-bottom: 0; }
   .header-divider {
-    grid-column: 1 / -1;
     border: 0;
     border-top: 1px solid var(--rule);
     margin: 0 0 30px;
+  }
+
+  /* ---- Grid ---- */
+  .cv {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    gap: 50px;
   }
 
   /* ---- Sidebar ---- */
   .sidebar { color: var(--text); }
   .sidebar .block { margin-bottom: 36px; }
   .sidebar p, .sidebar li { color: #444; font-size: 14px; line-height: 1.55; }
-  .sidebar ul { list-style: none; padding: 0; margin: 0; }
-  .sidebar ul li { margin: 0 0 12px; }
+  .sidebar ul { list-style: none; padding: 0; margin: 0 0 6px; }
+  .sidebar ul li { margin: 0 0 8px; }
   .sidebar .small { font-size: 14px; color: #444; line-height: 1.55; }
 
   /* ---- Main column ---- */
@@ -146,18 +149,13 @@
   .job ul { padding-left: 20px; margin: 6px 0 12px; }
   .job ul li { margin-bottom: 4px; color: #3a3a3a; }
 
-  .block-divider {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 30px 0;
-  }
-
   /* ---- Responsive ---- */
   @media (max-width: 760px) {
     .page { margin: 0; padding: 32px 22px 60px; box-shadow: none; }
     .cv { grid-template-columns: 1fr; gap: 0; }
+    .sidebar { order: 2; margin-top: 12px; }
+    .main { order: 1; }
     h1 { font-size: 38px; }
-    .sidebar { margin-bottom: 20px; }
     .sidebar .block:last-child { margin-bottom: 24px; }
   }
 
@@ -165,36 +163,32 @@
   @media print {
     body { background: #fff; }
     .page { box-shadow: none; margin: 0; padding: 24px; max-width: none; }
+    .job, article { break-inside: avoid; page-break-inside: avoid; }
+    h2 { break-after: avoid; }
   }
 </style>
 </head>
 <body>
   <main class="page">
+
+    <header class="cv-header">
+      <h1>Richard<br>Bagshaw</h1>
+      <p class="role">Senior Laravel Developer</p>
+    </header>
+    <hr class="header-divider">
+
     <div class="cv">
 
       <!-- ============ LEFT COLUMN ============ -->
       <aside class="sidebar">
 
-        <header>
-          <h1>Richard<br>Bagshaw</h1>
-          <p class="role">Senior Laravel Developer</p>
-        </header>
-
-        <hr class="header-divider" style="margin-bottom:30px">
-
         <section class="block">
           <h2>Details</h2>
-          <div class="label">Address</div>
-          <p class="small">18 Beech Close<br>Nottingham, NG12 4BG<br>United Kingdom</p>
-
-          <div class="label">Phone</div>
-          <p class="small">07545 966 851</p>
+          <div class="label">Location</div>
+          <p class="small">Nottingham, UK</p>
 
           <div class="label">Email</div>
           <p class="small"><a href="mailto:richard@bagshaw.co.uk">richard@bagshaw.co.uk</a></p>
-
-          <div class="label">Date / Place of Birth</div>
-          <p class="small">6th June 1977<br>Nottingham, UK</p>
 
           <div class="label">Nationality</div>
           <p class="small">British</p>
@@ -202,21 +196,40 @@
 
         <section class="block">
           <h2>Skills</h2>
+
+          <div class="label">Backend</div>
           <ul>
             <li>Laravel</li>
             <li>PHP 8 &amp; MySQL</li>
+            <li>Laravel Livewire &amp; Alpine</li>
+            <li>REST and RPC APIs</li>
+          </ul>
+
+          <div class="label">AI &amp; Tooling</div>
+          <ul>
+            <li>LLMs (Claude, Codex, Gemini)</li>
+            <li>Claude Code (subagents, hooks, slash commands)</li>
+            <li>Claude Skills</li>
+            <li>MCP (Model Context Protocol) servers</li>
+            <li>Plan mode &amp; AI-assisted planning</li>
+            <li>AI-assisted code review &amp; refactoring</li>
             <li>Git</li>
+          </ul>
+
+          <div class="label">Frontend</div>
+          <ul>
             <li>HTML &amp; CSS</li>
             <li>Tailwind CSS</li>
             <li>JavaScript</li>
-            <li>Vue (Composition API) / React</li>
-            <li>Unit testing with PHPUnit and PEST</li>
-            <li>Laravel Livewire and Alpine</li>
-            <li>Restful and/or RPC API</li>
+            <li>Vue (Composition API)</li>
+            <li>React</li>
+          </ul>
+
+          <div class="label">Testing &amp; Code Quality</div>
+          <ul>
+            <li>PHPUnit &amp; PEST</li>
+            <li>Behat, PHPStan, PHPCS</li>
             <li>Code Reviews (GitHub PRs)</li>
-            <li>Behat, PHPStan, PHPCS (Static analysis &amp; code quality tools)</li>
-            <li>LLMs (Claude, Codex, Gemini)</li>
-            <li>Claude Code &amp; AI-assisted development workflows</li>
           </ul>
         </section>
 
@@ -241,14 +254,9 @@
         </section>
 
         <section class="block">
-          <h2>Languages</h2>
-          <p class="small">English</p>
-        </section>
-
-        <section class="block">
           <h2>Links</h2>
-          <p class="small"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></p>
-          <p class="small"><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></p>
+          <p class="small"><a href="https://www.linkedin.com/in/bagwaa/" target="_blank" rel="noopener">LinkedIn</a></p>
+          <p class="small"><a href="https://github.com/bagwaa" target="_blank" rel="noopener">GitHub</a></p>
         </section>
 
       </aside>
@@ -259,33 +267,35 @@
         <section class="block">
           <h2>Profile</h2>
           <p>
-            I am a web developer, programmer, and technology enthusiast with
-            over 20 years of experience, based in Nottingham, UK. I have a
-            strong passion for continuous learning and skill improvement, often
-            dedicating my free time to staying up to date with the rapidly
-            evolving landscape of web development and programming.
+            I'm a Senior Laravel Developer based in Nottingham who has been
+            building for the web since 1996. I'm a programmer at heart and
+            spend a lot of my own time staying current with the rapidly
+            evolving landscape of web development.
           </p>
           <p>
             My core expertise lies in PHP, Laravel, and JavaScript. I've been
             working with Laravel since version 3 and have grown with the
-            framework through each major release. Alongside this, I have
-            extensive experience in a wide range of JavaScript libraries and
+            framework through every major release. Alongside this, I have
+            extensive experience with a range of JavaScript libraries and
             frameworks, including Vue, React, and earlier in my career,
-            jQuery. I also enjoy exploring other programming languages outside
-            of my daily work, such as Rust and Go, or anything that sparks my
-            curiosity.
+            jQuery. I also enjoy exploring other programming languages
+            outside of my day job, such as Rust and Go.
           </p>
           <p>
-            I'm committed to adopting best practices in my work, focusing on
-            methodologies like automated testing, code reviews, and gathering
-            feedback to deliver the most effective solutions.
+            Writing clean, understandable, and maintainable code is central
+            to how I work. I lean heavily on automated testing, code reviews,
+            and feedback loops, while balancing technical excellence with
+            the business reality that the pursuit of perfection shouldn't
+            come at an unsustainable cost.
           </p>
           <p>
-            Writing clean, understandable, and maintainable code is central to
-            my approach as a web developer. I also believe in balancing
-            technical excellence with an understanding of the business side of
-            development, ensuring that the pursuit of perfection doesn't come
-            at an unsustainable cost.
+            More recently, AI-assisted development has become a core part of
+            how I work. I use LLMs like Claude, Codex, and Gemini in my
+            day-to-day coding, but always in a responsible and professional
+            way. Strong automated test coverage, careful prompting, and
+            thorough human review are the guardrails that keep the output
+            trustworthy and let me move quickly without ever trading away
+            the quality of the work.
           </p>
         </section>
 
@@ -299,27 +309,24 @@
             </div>
             <div class="dates">Jul 2025 - Present</div>
             <p>
-              I joined Plannr Technologies in July 2025 as a Senior Laravel
-              Developer, working on a CRM platform built for the financial
-              advice industry. My day-to-day work focuses primarily on Laravel
-              API backends, with regular contributions to the Vue.js front end
-              as features require.
+              At Plannr I work on a CRM platform built for the UK financial
+              advice industry. My day-to-day focus is on Laravel API backends,
+              with regular contributions to the Vue.js front end as features
+              demand.
             </p>
             <p>
-              A significant part of my work at Plannr involves integrating
-              modern LLMs such as Claude, Codex, and Gemini into my
-              development workflow. I've built up a set of repeatable
-              workflows that use AI to assist with everything from boilerplate
-              scaffolding through to code review and refactoring, and Claude
-              Code in particular has become a central part of how I work.
+              A significant part of my role involves integrating modern LLMs
+              such as Claude, Codex, and Gemini into the development workflow.
+              I've built up a set of repeatable, Claude-Code-driven workflows
+              that assist with everything from boilerplate scaffolding through
+              to code review and refactoring, accelerating delivery without
+              giving up code quality.
             </p>
             <p>
               I'm very conscious that AI-assisted development is a delicate
-              balance. It lets me move quickly, but only when the right
-              guardrails are in place to protect quality. I lean on strong
-              testing, careful prompting, and thorough human review to make
-              sure that moving fast never comes at the cost of moving safely,
-              with AI amplifying my work rather than replacing the rigour
+              balance. Strong testing, deliberate prompting, and thorough
+              human review are the guardrails that let me move fast safely,
+              with AI amplifying my output rather than replacing the rigour
               behind it.
             </p>
           </article>
@@ -331,16 +338,12 @@
             </div>
             <div class="dates">Jan 2025 - Jul 2025</div>
             <p>
-              Working with Develo Design on a contract basis as a Laravel
-              developer, I contributed to products that primarily integrated
-              Magento shop data with AI services, running on Laravel Cloud.
-            </p>
-            <p>
-              The work involved designing pipelines that consumed product and
-              order data from Magento, enriching it through AI tooling, and
-              exposing the results back to the wider Laravel application
-              stack. It was a great opportunity to combine traditional
-              e-commerce data flows with modern AI integration patterns.
+              A freelance contract building Laravel applications that
+              integrated Magento shop data with AI services, hosted on
+              Laravel Cloud. The work centred on designing pipelines that
+              consumed product and order data from Magento, enriched it
+              through AI tooling, and exposed the results back into the wider
+              Laravel application stack.
             </p>
           </article>
 
@@ -351,65 +354,42 @@
             </div>
             <div class="dates">Jan 2025 - Jul 2025</div>
             <p>
-              After leaving Mumsnet I returned to freelancing, and one of my
-              main engagements during this period was a contract with Alt
-              Design, a digital agency based in Derby.
-            </p>
-            <p>
-              I worked across a range of Laravel projects, using a stack that
-              included Laravel, Livewire, and Vue. The agency setting meant
-              switching between client codebases regularly, which kept the
-              work varied and reinforced my preference for clean,
-              well-tested, easy-to-pick-up code.
+              A freelance contract with Alt Design, a digital agency based in
+              Derby, working across a varied set of client Laravel projects
+              using Laravel, Livewire, and Vue. The agency setting meant
+              switching between codebases regularly, which reinforced my
+              preference for clean, well-tested, easy-to-pick-up code.
             </p>
           </article>
 
           <article class="job">
             <div class="job-header">
               <h3>Software Developer, Mumsnet</h3>
-              <span class="tag">London</span>
+              <span class="tag">Full-time, London</span>
             </div>
             <div class="dates">Jul 2023 - Dec 2024</div>
             <p>
-              Mumsnet is a leading online community, catering to the diverse
-              challenges of parenting and family life. In this role, I was
-              responsible for both developing new features and maintaining
-              the platform's core functionality, while continually optimizing
-              the code base to ensure high performance and scalability.
+              Mumsnet is one of the UK's largest online communities, serving
+              millions of requests a day. I worked across a Laravel and
+              Livewire codebase that was actively migrating to Vue, building
+              features, maintaining core functionality, and continually
+              optimising the platform for performance and scale.
             </p>
             <p>
-              The website is built on Laravel and Livewire, with an active
-              migration to Vue for more dynamic front-end interactivity. Given
-              the sheer volume of traffic, with millions of daily requests, the
-              platform posed unique scalability and performance challenges that
-              required creative, efficient solutions.
-            </p>
-            <p>
-              Among the features I developed is a gratitude system, Mumsnet's
-              tailored version of the classic "like" functionality with a
-              twist, as well as an advanced content matching system that
-              leveraged Google's natural language processing (NLP) technology
-              to link custom user-generated content with other relevant site
-              content.
-            </p>
-            <p>
-              I also designed a custom polling feature that allowed users to
-              create and engage with polls across different sections of the
+              Notable features I built include a custom "gratitude" system
+              (Mumsnet's twist on the classic "like"), an advanced
+              content-matching system that used Google's natural language
+              processing APIs to link user-generated content with relevant
+              on-site content, and a site-wide polling feature that members
+              could create and engage with across different sections of the
               site.
             </p>
             <p>
-              In addition to feature development, I consistently addressed
-              bugs, refactored legacy code, and updated various aspects of the
-              code base to keep it in line with the latest best practices. All
-              updates were rigorously tested using PHPUnit and Laravel's
-              testing tools, while Vue components were tested with Jest to
-              ensure smooth integration and user experience.
-            </p>
-            <p>
-              Throughout my time at Mumsnet, I also had the opportunity to
-              work extensively with PHP 8.x, utilizing its modern features such
-              as attributes, enums, match expressions, and constructor property
-              promotion to enhance development efficiency and readability.
+              Alongside the feature work I refactored legacy code, modernised
+              parts of the codebase to take advantage of PHP 8.x (attributes,
+              enums, match expressions, constructor property promotion), and
+              made sure new and changed code was covered by PHPUnit and
+              Laravel's testing tools, with Jest covering the Vue layer.
             </p>
           </article>
 
@@ -420,27 +400,18 @@
             </div>
             <div class="dates">Aug 2021 - Jun 2023</div>
             <p>
-              The Sans Institute is a global leader in cybersecurity training,
-              and I worked on the ranges.io team, where we developed and
-              maintained a "capture the flag" (CTF) platform used in various
-              educational programs delivered to students.
+              Ranges.io is a "capture the flag" platform used in cybersecurity
+              training programmes run by SANS. I worked on the backend, a
+              PHP and MySQL service built on the Slim PHP micro-framework
+              and exposed as an API to a React front end. AWS Lambda handled
+              the more intensive workloads, and development ran locally in
+              Docker.
             </p>
             <p>
-              Our tech stack included a React front end that communicated with
-              a PHP / MySQL back-end, primarily through an API built on top of
-              the Slim PHP micro framework. We leveraged AWS for hosting,
-              utilising Lambda functions to handle intensive processes as
-              needed. Development took place locally within Docker containers,
-              allowing us to seamlessly manage the various components of the
-              platform.
-            </p>
-            <p>
-              My role involved implementing features planned well in advance,
-              using tools like PHPUnit, Behat, PHPStan, PHPCS, and ESLint to
-              ensure code quality and adherence to standards. We followed
-              two-week sprints, during which the entire team collaborates on
-              planning, refining features, and defining minimum viable features
-              before any development work begins.
+              The team worked in two-week sprints with strong upfront
+              planning and refinement, and I leaned heavily on PHPUnit,
+              Behat, PHPStan, PHPCS, and ESLint to keep the codebase
+              consistent and trustworthy.
             </p>
           </article>
 
@@ -451,34 +422,20 @@
             </div>
             <div class="dates">May 2019 - Aug 2021</div>
             <p>
-              Whilst contracting with Twindig, I was also working as a
-              freelance web developer for various other clients.
+              At Twindig I was the second developer on a two-person team
+              (alongside the CTO), building an MVP property platform that let
+              homeowners manage all of their property information in one
+              place. The stack was Laravel with Livewire and Alpine, Vue
+              where richer interactivity was needed, and Tailwind CSS for
+              styling, hosted via Laravel Forge on Digital Ocean.
             </p>
             <p>
-              When I joined Twindig, the team consisted of just myself and the
-              CTO. Together, we were responsible for building the platform
-              according to an agreed MVP specification that allowed homeowners
-              to manage all aspects of their property information.
-            </p>
-            <p>
-              The stack we used included PHP 7+, Laravel, Laravel Livewire,
-              AlpineJS, Tailwind CSS, and Vue. We hosted the site using Laravel
-              Forge, which deployed to Digital Ocean droplets whenever new pull
-              requests were merged into the master branch.
-            </p>
-            <p>
-              Given the small team, my role was diverse. Some days, I focused
-              on building user interfaces with HTML and Tailwind CSS, while
-              other days, I developed Livewire components to implement new
-              features.
-            </p>
-            <p>
-              One of my first tasks was to create a "document library" where
-              users could upload and store documents related to their property.
-              This feature was built using Eloquent models and integrated with
-              Digital Ocean Spaces for file storage. Additionally, I developed
-              polymorphic systems, such as a tagging feature, allowing us to
-              associate tags with multiple entities across the platform.
+              The role was deliberately broad: building user interfaces with
+              Tailwind, writing Livewire components, and wiring up backend
+              systems. Notable pieces include a document library backed by
+              Eloquent and Digital Ocean Spaces for file storage, and a
+              polymorphic tagging system that let tags be attached to any
+              entity across the platform.
             </p>
           </article>
 
@@ -489,28 +446,17 @@
             </div>
             <div class="dates">May 2019 - Nov 2019</div>
             <p>
-              At Rentora, I joined as a Laravel / Vue developer on a six-month
-              contract, tasked with building features for a platform that
-              helped landlords manage their relationships with tenants through
-              digital and automated systems. This included features like
-              automated rent payments processed via Stripe.
+              A six-month contract building features for a platform that
+              helped landlords manage tenant relationships through digital
+              and automated systems, including automated rent collection via
+              Stripe. The architecture was a Laravel REST API consumed by a
+              Vue front end (styled with Tailwind), hosted on Laravel Forge.
             </p>
             <p>
-              The tech stack included PHP 7, with Laravel functioning as a REST
-              API, Vue for the front end, and Tailwind CSS for styling. We
-              hosted the platform using Laravel Forge, deploying updates to
-              Digital Ocean droplets.
-            </p>
-            <p>
-              My primary focus was on developing the property listings feature,
-              enabling landlords to list their rental properties, which would
-              then be displayed on a property listings page built entirely in
-              Vue. To enhance search engine optimization (SEO) for the highly
-              JavaScript-dependent site, we implemented server-side rendering.
-            </p>
-            <p>
-              Regular tasks involved building API endpoints in Laravel to
-              support Vue's front-end functionality.
+              My main focus was the property listings feature, which I built
+              as a Vue page backed by Laravel API endpoints, with server-side
+              rendering in place so that the heavily JavaScript-driven page
+              retained its SEO.
             </p>
           </article>
 
@@ -521,36 +467,28 @@
             </div>
             <div class="dates">Jan 2016 - May 2019</div>
             <p>
-              During my 3 ½ years at GatherContent, I primarily worked as a
-              back-end developer, responsible for managing the API and handling
-              deployments via Envoyer, Forge, and AWS.
+              During three and a half years at GatherContent I worked
+              primarily as a backend developer on the API, handling
+              deployments via Envoyer, Forge, and AWS. The role was also
+              where I first picked up React, contributing regularly to
+              front-end features in React, Redux, and ES6.
             </p>
-            <p>
-              While my primary focus was on the back end, this role was also
-              where I first began working with React. I frequently contributed
-              to front-end tasks using React, Redux, and ES6.
-            </p>
-            <p>Some of my key achievements included:</p>
+            <p>Key contributions included:</p>
             <ul>
               <li>Developing tools to ensure full GDPR compliance.</li>
-              <li>Building hundreds of API endpoints for various features, utilizing test-driven development (TDD), pair programming, and conducting thorough pull request code reviews.</li>
-              <li>Migrating development environments from AWS EC2 instances to local Docker or Homestead setups.</li>
-              <li>Developing the back end of a live collaboration tool, allowing multiple users to simultaneously edit documents.</li>
-              <li>Leading the upgrade of all codebases from Laravel 4.1 to Laravel 5.8 by the time of my departure.</li>
-              <li>Implementing a system for content search using the Algolia API, a highly requested feature from customers.</li>
-              <li>Creating a commenting system to allow users to comment directly on any part of the documents they were editing.</li>
-              <li>Leveraging Laravel's notification system to send both email and in-app notifications.</li>
+              <li>Building hundreds of API endpoints, working with TDD, pair programming, and thorough pull request reviews.</li>
+              <li>Migrating development environments from AWS EC2 to local Docker / Homestead setups.</li>
+              <li>Building the back end of a live collaboration tool that allowed multiple users to edit a document simultaneously.</li>
+              <li>Leading the upgrade of all codebases from Laravel 4.1 through to Laravel 5.8.</li>
+              <li>Integrating Algolia for in-app content search, a heavily requested feature.</li>
+              <li>Building a commenting system that let users comment on any part of a document.</li>
+              <li>Implementing email and in-app notifications via Laravel's notification system.</li>
             </ul>
             <p>
-              Additionally, I frequently assisted customers with complex
-              technical issues that went beyond the scope of standard support.
+              I also regularly helped customers with technical issues that
+              went beyond the scope of standard support.
             </p>
           </article>
-        </section>
-
-        <section class="block">
-          <h2>References</h2>
-          <p>References available upon request</p>
         </section>
 
       </div>
