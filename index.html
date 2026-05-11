@@ -45,19 +45,21 @@
   /* ---- Headings ---- */
   h1 {
     font-weight: 900;
-    font-size: 46px;
-    line-height: 1.02;
+    font-size: 58px;
+    line-height: 1.0;
     letter-spacing: 0.5px;
-    margin: 0 0 12px;
+    margin: 0 0 14px;
     text-transform: uppercase;
     color: var(--accent);
   }
 
   .role {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: var(--brand);
-    margin: 0 0 28px;
+    margin: 0;
   }
 
   h2 {
@@ -112,12 +114,21 @@
   }
 
   /* ---- Top header ---- */
-  .cv-header { margin-bottom: 0; }
-  .header-divider {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 0 0 30px;
+  .cv-header {
+    position: relative;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
   }
+  .cv-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--brand);
+  }
+  .header-divider { display: none; }
 
   /* ---- Grid ---- */
   .cv {
@@ -198,21 +209,67 @@
   .page-footer a:hover { color: var(--accent); text-decoration: underline; }
 
   /* ---- Responsive ---- */
-  @media (max-width: 760px) {
+  @media screen and (max-width: 760px) {
     .page { margin: 0; padding: 32px 22px 60px; box-shadow: none; }
     .cv { grid-template-columns: 1fr; gap: 0; }
     .sidebar { order: 2; margin-top: 12px; }
     .main { order: 1; }
-    h1 { font-size: 38px; }
+    h1 { font-size: 40px; line-height: 1.05; }
     .sidebar .block:last-child { margin-bottom: 24px; }
   }
 
   /* ---- Print ---- */
+  @page {
+    size: A4;
+    margin: 12mm 12mm 14mm;
+  }
   @media print {
-    body { background: #fff; }
-    .page { box-shadow: none; margin: 0; padding: 24px; max-width: none; }
+    html, body {
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+    .cv {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+    }
+    .sidebar { order: 0; margin-top: 0; }
+    .main { order: 0; }
     .job, article { break-inside: avoid; page-break-inside: avoid; }
-    h2 { break-after: avoid; }
+    .job-header { break-after: avoid; page-break-after: avoid; }
+    h2, h3 { break-after: avoid; page-break-after: avoid; }
+    .skills-list li, .job-header .tag {
+      background: #f3f3f1 !important;
+    }
+    .html-only { display: none !important; }
+    .employment {
+      break-before: page;
+      page-break-before: always;
+    }
+    .employment h2 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .label {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .skills-list {
+      break-before: avoid;
+      page-break-before: avoid;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    a { color: var(--accent); }
+    h3 a { color: var(--brand); }
+    .page-footer { margin-top: 28px; }
   }
 </style>
 </head>
@@ -220,10 +277,9 @@
   <main class="page">
 
     <header class="cv-header">
-      <h1>Richard<br>Bagshaw</h1>
+      <h1>Richard Bagshaw</h1>
       <p class="role">Senior Laravel Developer</p>
     </header>
-    <hr class="header-divider">
 
     <div class="cv">
 
@@ -339,6 +395,7 @@
           <h2>Links</h2>
           <p class="small"><a href="https://www.linkedin.com/in/bagwaa/" target="_blank" rel="noopener">LinkedIn</a></p>
           <p class="small"><a href="https://github.com/bagwaa" target="_blank" rel="noopener">GitHub</a></p>
+          <p class="small html-only"><a href="Richard_Bagshaw_CV.pdf" download>Download CV (PDF)</a></p>
         </section>
 
       </aside>
@@ -381,7 +438,7 @@
           </p>
         </section>
 
-        <section class="block">
+        <section class="block employment">
           <h2>Employment History</h2>
 
           <article class="job">
