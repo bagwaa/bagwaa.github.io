@@ -17,6 +17,7 @@
     --page-bg: #f3f3f1;
     --paper: #ffffff;
     --accent: #1f1f1f;
+    --brand: #1b3a5b;
   }
 
   * { box-sizing: border-box; }
@@ -55,7 +56,7 @@
   .role {
     font-size: 20px;
     font-weight: 700;
-    color: #3a3a3a;
+    color: var(--brand);
     margin: 0 0 28px;
   }
 
@@ -73,7 +74,7 @@
     display: block;
     width: 28px;
     height: 3px;
-    background: var(--accent);
+    background: var(--brand);
     margin-top: 6px;
     margin-bottom: 18px;
   }
@@ -85,6 +86,8 @@
     color: var(--accent);
     line-height: 1.3;
   }
+  h3 a { color: var(--brand); }
+  h3 a:hover { color: #0f2a47; }
 
   .label {
     font-size: 12px;
@@ -130,6 +133,25 @@
   .sidebar ul { list-style: none; padding: 0; margin: 0 0 6px; }
   .sidebar ul li { margin: 0 0 8px; }
   .sidebar .small { font-size: 14px; color: #444; line-height: 1.55; }
+
+  /* Skills as pills */
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .sidebar .skills-list li {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: #f3f3f1;
+    border-radius: 999px;
+    color: #3a3a3a;
+    margin: 0;
+    line-height: 1.4;
+  }
 
   /* ---- Main column ---- */
   .main .block { margin-bottom: 36px; }
@@ -224,38 +246,72 @@
           <h2>Skills</h2>
 
           <div class="label">Backend</div>
-          <ul>
+          <ul class="skills-list">
             <li>Laravel</li>
-            <li>PHP 8 &amp; MySQL</li>
-            <li>Laravel Livewire &amp; Alpine</li>
-            <li>REST and RPC APIs</li>
+            <li>Eloquent</li>
+            <li>PHP 8</li>
+            <li>MySQL</li>
+            <li>SQLite</li>
+            <li>Redis</li>
+            <li>S3</li>
+            <li>Livewire</li>
+            <li>Sanctum</li>
+            <li>Passport</li>
+            <li>Horizon</li>
+            <li>Reverb</li>
+            <li>Nova</li>
+            <li>Filament</li>
+            <li>Laravel Forge</li>
+            <li>Laravel Envoyer</li>
+            <li>Laravel Cloud</li>
+            <li>REST APIs</li>
           </ul>
 
           <div class="label">AI &amp; Tooling</div>
-          <ul>
-            <li>LLMs (Claude, Codex, Gemini)</li>
-            <li>Claude Code (subagents, hooks, slash commands)</li>
+          <ul class="skills-list">
+            <li>Claude</li>
+            <li>Codex</li>
+            <li>Gemini</li>
+            <li>Claude Code</li>
+            <li>Subagents</li>
+            <li>Hooks</li>
+            <li>Slash commands</li>
             <li>Claude Skills</li>
-            <li>MCP (Model Context Protocol) servers</li>
-            <li>Plan mode &amp; AI-assisted planning</li>
-            <li>AI-assisted code review &amp; refactoring</li>
+            <li>MCPs</li>
+            <li>Plan Mode</li>
             <li>Git</li>
+            <li>Docker</li>
+            <li>CI/CD</li>
+            <li>Tinkerwell</li>
+            <li>Bugsnag</li>
           </ul>
 
           <div class="label">Frontend</div>
-          <ul>
-            <li>HTML &amp; CSS</li>
-            <li>Tailwind CSS</li>
+          <ul class="skills-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Tailwind</li>
             <li>JavaScript</li>
             <li>Vue (Composition API)</li>
             <li>React</li>
+            <li>Alpine</li>
+            <li>Tailwind UI</li>
+            <li>Inertia.js</li>
+            <li>Vite</li>
           </ul>
 
           <div class="label">Testing &amp; Code Quality</div>
-          <ul>
-            <li>PHPUnit &amp; PEST</li>
-            <li>Behat, PHPStan, PHPCS</li>
-            <li>Code Reviews (GitHub PRs)</li>
+          <ul class="skills-list">
+            <li>PHPUnit</li>
+            <li>PEST</li>
+            <li>Behat</li>
+            <li>PHPStan</li>
+            <li>Larastan</li>
+            <li>PHPCS</li>
+            <li>Laravel Pint</li>
+            <li>Mockery</li>
+            <li>Faker</li>
+            <li>Code Reviews</li>
           </ul>
         </section>
 
@@ -390,7 +446,7 @@
 
           <article class="job">
             <div class="job-header">
-              <h3>Software Developer, Mumsnet</h3>
+              <h3>Software Developer, <a href="https://www.mumsnet.com/" target="_blank" rel="noopener">Mumsnet</a></h3>
               <span class="tag">Full-time, London</span>
             </div>
             <div class="dates">Jul 2023 - Dec 2024</div>
@@ -421,7 +477,7 @@
 
           <article class="job">
             <div class="job-header">
-              <h3>PHP Developer on Ranges.io, The Sans Institute</h3>
+              <h3>PHP Developer on <a href="https://ranges.io/" target="_blank" rel="noopener">Ranges.io</a>, <a href="https://www.sans.org/" target="_blank" rel="noopener">The Sans Institute</a></h3>
               <span class="tag">Full-time</span>
             </div>
             <div class="dates">Aug 2021 - Jun 2023</div>
@@ -443,7 +499,7 @@
 
           <article class="job">
             <div class="job-header">
-              <h3>Laravel Developer, Twindig.com</h3>
+              <h3>Laravel Developer, <a href="https://www.twindig.com/" target="_blank" rel="noopener">Twindig.com</a></h3>
               <span class="tag">Contract</span>
             </div>
             <div class="dates">May 2019 - Aug 2021</div>
@@ -467,7 +523,7 @@
 
           <article class="job">
             <div class="job-header">
-              <h3>Laravel Developer, Rentora</h3>
+              <h3>Laravel Developer, <a href="https://www.rentora.co.uk/" target="_blank" rel="noopener">Rentora</a></h3>
               <span class="tag">Contract</span>
             </div>
             <div class="dates">May 2019 - Nov 2019</div>
@@ -488,7 +544,7 @@
 
           <article class="job">
             <div class="job-header">
-              <h3>Backend Developer, GatherContent.com</h3>
+              <h3>Backend Developer, <a href="https://gathercontent.com/" target="_blank" rel="noopener">GatherContent.com</a></h3>
               <span class="tag">Full-time</span>
             </div>
             <div class="dates">Jan 2016 - May 2019</div>
@@ -522,7 +578,7 @@
     </div>
 
     <footer class="page-footer">
-      Last updated May 2026 &middot; <a href="https://github.com/bagwaa/bagwaa.github.io" target="_blank" rel="noopener">View source on GitHub</a>
+      Last updated May 2026
     </footer>
   </main>
 </body>
